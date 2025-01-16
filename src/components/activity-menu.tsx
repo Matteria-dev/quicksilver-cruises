@@ -1,0 +1,119 @@
+import { motion } from 'framer-motion'
+import { ChevronRight } from 'lucide-react'
+import { useState } from 'react'
+import { Card } from './card'
+
+interface SideMenuLink {
+  title: string
+  href: string
+}
+
+const sidebarLinks: SideMenuLink[] = [
+  {
+    title: 'Snorkelling',
+    href: '/activity/snorkelling',
+  },
+  {
+    title: 'Diving',
+    href: '/activity/diving',
+  },
+  {
+    title: 'Semi Submersible',
+    href: '/activity/semi-submersible',
+  },
+  {
+    title: 'Ocean Walker',
+    href: '/activity/ocean-walker',
+  },
+  {
+    title: 'Underwater Observatory',
+    href: '/activity/underwater-observatory',
+  },
+  {
+    title: 'Scenic Helicopter Flights',
+    href: '/activity/helicopter-flights',
+  },
+  {
+    title: 'Platform',
+    href: '/platform',
+  },
+]
+
+interface SideMenuProps {
+  activeSection: string
+  className?: string
+}
+
+export function ActivityMenu({ activeSection, className }: SideMenuProps) {
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+
+  return (
+    <div className="hidden lg:block lg:w-[20vw] lg:min-w-[256px] lg:max-w-[320px]">
+      <Card className="sticky top-60 w-full">
+        <div>
+          <div className="mb-4">
+            <h2 className="text-center text-xl font-bold text-blue-500 dark:text-blue-200">
+              Activities
+            </h2>
+            <div className="mt-1 h-1 w-full rounded-full bg-gradient-to-r from-blue-300 to-teal-300" />
+          </div>
+
+          <nav className="space-y-1">
+            {sidebarLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1)
+              const isHovered = hoveredLink === link.href
+
+              return (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  className={`group relative flex items-center rounded-lg p-2 transition-all duration-200 ${
+                    isActive
+                      ? 'from-blue-100 to-teal-100 bg-gradient-to-r text-blue-500'
+                      : ' text-blue-500 dark:text-blue-300 dark:text-grey-200'
+                  }`}
+                  onMouseEnter={() => setHoveredLink(link.href)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="mr-2 flex-grow truncate text-sm font-medium">
+                    {link.title}
+                  </span>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 transform transition-transform duration-200 ${
+                      isHovered
+                        ? 'translate-x-1 text-blue-400'
+                        : 'text-grey-400'
+                    }`}
+                  />
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute left-0 top-0 h-full w-0.5 rounded-r bg-gradient-to-b from-blue-400 to-teal-400"
+                      initial={false}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </motion.a>
+              )
+            })}
+          </nav>
+        </div>
+
+        <div className="from-blue-50 to-teal-50 mt-2 bg-gradient-to-br p-3">
+          <p className="text-blue-500 dark:text-grey-200 text-xs">
+            Need help choosing an activity?
+          </p>
+          <button className="mt-2 w-full rounded-lg bg-gradient-to-r from-blue-100 from-blue-300 to-blue-200 px-3 py-1.5 text-xs font-medium text-grey-200 transition-colors hover:bg-gradient-to-r">
+            Contact Us
+          </button>
+        </div>
+      </Card>
+    </div>
+  )
+}
