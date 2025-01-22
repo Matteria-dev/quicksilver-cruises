@@ -49,60 +49,50 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
         setLoading(true)
         setError(null)
 
+        // Define type for the where query
+        interface WhereQuery {
+          _status: {
+            equals: string;
+          };
+          categories?: {
+            slug: {
+              equals: string;
+            };
+          };
+        }
+
+        // Build the where query
+        const whereQuery: WhereQuery = {
+          _status: {
+            equals: 'published'
+          }
+        }
+
+        if (categorySlug) {
+          whereQuery.categories = {
+            slug: {
+              equals: categorySlug
+            }
+          }
+        }
+
+        // Build the query parameters
         const params = new URLSearchParams({
           depth: '1',
           limit: '12',
-          where: JSON.stringify({
-            _status: {
-              equals: 'published'
-            }
-          }),
-          fields: JSON.stringify({
-            title: true,
-            slug: true,
-            heroImage: {
-              url: true
-            },
-            meta: {
-              description: true
-            },
-            publishedAt: true,
-            categories: {
-              id: true,
-              title: true
-            },
-            populatedAuthors: {
-              id: true,
-              name: true
-            }
-          })
+          where: JSON.stringify(whereQuery)
         })
 
-        if (categorySlug) {
-          params.append('where', JSON.stringify({
-            'categories.slug': {
-              equals: categorySlug
-            }
-          }))
-        }
-
-        const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || ''
-        const response = await fetch(
-          `https://qsg-news.vercel.app/api/posts?${params.toString()}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            }
-          }
-        )
+        // Use the local API route instead of calling CMS directly
+        const response = await fetch(`/api/posts?${params.toString()}`)
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+          const text = await response.text()
+          throw new Error(`Failed to fetch posts: ${text}`)
         }
 
         const data: PostsResponse = await response.json()
-        
-        console.log('API Response:', data)
+        console.log('Posts data:', data) // Debug log
 
         if (data && Array.isArray(data.docs)) {
           setPosts(data.docs)
@@ -151,7 +141,9 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
           <div className="relative w-full">
             <img
               alt={post.title}
-              src={post.heroImage?.url || '/placeholder-image.jpg'}
+              src={post.heroImage?.url 
+                ? `${process.env.NEXT_PUBLIC_CMS_URL}${post.heroImage.url}`
+                : '/placeholder-image.jpg'}
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
             />
             <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
