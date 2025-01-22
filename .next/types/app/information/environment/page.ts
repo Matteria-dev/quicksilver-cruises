@@ -1,4 +1,4 @@
-// File: D:\payload-silver\src\app\information\environment\page.tsx
+// File: D:\quicksilver-cruises\src\app\information\environment\page.tsx
 import * as entry from '../../../../../src/app/information/environment/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

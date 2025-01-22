@@ -1,4 +1,4 @@
-// File: D:\payload-silver\src\app\outer-reef\page.tsx
+// File: D:\quicksilver-cruises\src\app\outer-reef\page.tsx
 import * as entry from '../../../../src/app/outer-reef/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,4 +1,4 @@
-// File: D:\payload-silver\src\app\activity\snorkelling\page.tsx
+// File: D:\quicksilver-cruises\src\app\activity\snorkelling\page.tsx
 import * as entry from '../../../../../src/app/activity/snorkelling/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
