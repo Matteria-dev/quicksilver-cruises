@@ -88,7 +88,7 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
 
         const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || ''
         const response = await fetch(
-          `${baseUrl}/api/posts?${params.toString()}`,
+          `https://qsg-news.vercel.app/api/posts?${params.toString()}`,
           {
             headers: {
               'Content-Type': 'application/json',
