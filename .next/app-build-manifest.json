@@ -12,11 +12,44 @@
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
       "static/chunks/1517-cfb68bbb2fec74df.js",
       "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/css/1f7ad6fe7b6342b4.css",
+      "static/css/73f9c99dd0d6378e.css",
       "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
       "static/chunks/6833-3fe79bc63ce0300e.js",
       "static/chunks/3602-8873551c0b593b23.js",
       "static/chunks/app/layout-b71f89502064e208.js"
+    ],
+    "/api/posts/route": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/app/api/posts/route-9b13cf1a1f361277.js"
+    ],
+    "/activity/diving/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/7105-2ee9d0af6d609dde.js",
+      "static/chunks/4823-36eeee5955b07126.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/159-d271cd9a8f39b1a8.js",
+      "static/chunks/app/activity/diving/page-5849b0b35ad65e27.js"
+    ],
+    "/activity/ocean-walker/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/7105-2ee9d0af6d609dde.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/159-d271cd9a8f39b1a8.js",
+      "static/chunks/8932-c3cf8a01cc4ee38b.js",
+      "static/chunks/app/activity/ocean-walker/page-81d4cf4da177281e.js"
     ],
     "/activity/helicopter-flights/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -57,19 +90,6 @@
       "static/chunks/8932-c3cf8a01cc4ee38b.js",
       "static/chunks/app/activity/snorkelling/page-c76e75705f31ec5d.js"
     ],
-    "/activity/ocean-walker/page": [
-      "static/chunks/webpack-7539a1275f3af51f.js",
-      "static/chunks/4bd1b696-a8f341055ff3f383.js",
-      "static/chunks/1517-cfb68bbb2fec74df.js",
-      "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/7105-2ee9d0af6d609dde.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/159-d271cd9a8f39b1a8.js",
-      "static/chunks/8932-c3cf8a01cc4ee38b.js",
-      "static/chunks/app/activity/ocean-walker/page-81d4cf4da177281e.js"
-    ],
     "/activity/underwater-observatory/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
@@ -82,19 +102,6 @@
       "static/chunks/159-d271cd9a8f39b1a8.js",
       "static/chunks/8932-c3cf8a01cc4ee38b.js",
       "static/chunks/app/activity/underwater-observatory/page-e095c0c6cd038a5b.js"
-    ],
-    "/activity/diving/page": [
-      "static/chunks/webpack-7539a1275f3af51f.js",
-      "static/chunks/4bd1b696-a8f341055ff3f383.js",
-      "static/chunks/1517-cfb68bbb2fec74df.js",
-      "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/7105-2ee9d0af6d609dde.js",
-      "static/chunks/4823-36eeee5955b07126.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/159-d271cd9a8f39b1a8.js",
-      "static/chunks/app/activity/diving/page-5849b0b35ad65e27.js"
     ],
     "/company/about/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -114,17 +121,7 @@
       "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
       "static/chunks/6833-3fe79bc63ce0300e.js",
       "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/app/company/blog/page-fde15bcfe9e4d04d.js"
-    ],
-    "/company/support/page": [
-      "static/chunks/webpack-7539a1275f3af51f.js",
-      "static/chunks/4bd1b696-a8f341055ff3f383.js",
-      "static/chunks/1517-cfb68bbb2fec74df.js",
-      "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/app/company/support/page-cf0f39b22eb345e2.js"
+      "static/chunks/app/company/blog/page-925dad16e5546b30.js"
     ],
     "/company/careers/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -145,6 +142,16 @@
       "static/chunks/6833-3fe79bc63ce0300e.js",
       "static/chunks/3602-8873551c0b593b23.js",
       "static/chunks/app/company/press/page-b277cbc1a9c94a7c.js"
+    ],
+    "/company/support/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/app/company/support/page-cf0f39b22eb345e2.js"
     ],
     "/contact/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -168,18 +175,6 @@
       "static/chunks/159-d271cd9a8f39b1a8.js",
       "static/chunks/app/information/accessibility/page-a085715f3b0c824b.js"
     ],
-    "/information/climate-action/page": [
-      "static/chunks/webpack-7539a1275f3af51f.js",
-      "static/chunks/4bd1b696-a8f341055ff3f383.js",
-      "static/chunks/1517-cfb68bbb2fec74df.js",
-      "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/7105-2ee9d0af6d609dde.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/159-d271cd9a8f39b1a8.js",
-      "static/chunks/app/information/climate-action/page-236947d8c393cef9.js"
-    ],
     "/information/agincourt-reef/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
@@ -191,6 +186,18 @@
       "static/chunks/3602-8873551c0b593b23.js",
       "static/chunks/159-d271cd9a8f39b1a8.js",
       "static/chunks/app/information/agincourt-reef/page-e8b06064006aa2fb.js"
+    ],
+    "/information/climate-action/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/7105-2ee9d0af6d609dde.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/159-d271cd9a8f39b1a8.js",
+      "static/chunks/app/information/climate-action/page-236947d8c393cef9.js"
     ],
     "/information/ecotourism/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -242,6 +249,18 @@
       "static/chunks/5353-5a86d38b3bdca1f2.js",
       "static/chunks/app/information/faq/page-de705e2acea0183e.js"
     ],
+    "/information/gbr-health/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/7105-2ee9d0af6d609dde.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/159-d271cd9a8f39b1a8.js",
+      "static/chunks/app/information/gbr-health/page-e053ed98583828ec.js"
+    ],
     "/information/gbr/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
@@ -278,18 +297,6 @@
       "static/chunks/159-d271cd9a8f39b1a8.js",
       "static/chunks/app/information/reef-restoration/page-4a8dfc37108cabce.js"
     ],
-    "/information/gbr-health/page": [
-      "static/chunks/webpack-7539a1275f3af51f.js",
-      "static/chunks/4bd1b696-a8f341055ff3f383.js",
-      "static/chunks/1517-cfb68bbb2fec74df.js",
-      "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/7105-2ee9d0af6d609dde.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/159-d271cd9a8f39b1a8.js",
-      "static/chunks/app/information/gbr-health/page-e053ed98583828ec.js"
-    ],
     "/information/vessels/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
@@ -324,15 +331,12 @@
       "static/chunks/3602-8873551c0b593b23.js",
       "static/chunks/app/outer-reef/page-931d52fd1ebcc910.js"
     ],
-    "/pricing/page": [
+    "/posts/[slug]/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
       "static/chunks/1517-cfb68bbb2fec74df.js",
       "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
-      "static/chunks/6833-3fe79bc63ce0300e.js",
-      "static/chunks/3602-8873551c0b593b23.js",
-      "static/chunks/app/pricing/page-02f175f445e2b5c9.js"
+      "static/chunks/app/posts/[slug]/page-2871a32394d98e27.js"
     ],
     "/platform/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -345,6 +349,16 @@
       "static/chunks/3602-8873551c0b593b23.js",
       "static/chunks/159-d271cd9a8f39b1a8.js",
       "static/chunks/app/platform/page-98c79bb9f6f20ddd.js"
+    ],
+    "/pricing/page": [
+      "static/chunks/webpack-7539a1275f3af51f.js",
+      "static/chunks/4bd1b696-a8f341055ff3f383.js",
+      "static/chunks/1517-cfb68bbb2fec74df.js",
+      "static/chunks/main-app-8fe0a95169740e9b.js",
+      "static/chunks/c16f53c3-6c0b61b870ddf0a3.js",
+      "static/chunks/6833-3fe79bc63ce0300e.js",
+      "static/chunks/3602-8873551c0b593b23.js",
+      "static/chunks/app/pricing/page-02f175f445e2b5c9.js"
     ],
     "/page": [
       "static/chunks/webpack-7539a1275f3af51f.js",
@@ -363,7 +377,7 @@
       "static/chunks/4bd1b696-a8f341055ff3f383.js",
       "static/chunks/1517-cfb68bbb2fec74df.js",
       "static/chunks/main-app-8fe0a95169740e9b.js",
-      "static/chunks/app/api/posts/[slug]/route-3cf209ce5ace509e.js"
+      "static/chunks/app/api/posts/[slug]/route-2f17a8f7fbcfdb34.js"
     ]
   }
 }

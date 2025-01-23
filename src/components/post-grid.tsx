@@ -63,7 +63,7 @@ const PostsGrid: React.FC = () =>
                     where: JSON.stringify(whereQuery)
                 })
 
-                const response = await fetch(`https://qsg-news.vercel.app/api/posts?${params.toString()}`)
+                const response = await fetch(`/api/posts?${params.toString()}`)
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch posts')
