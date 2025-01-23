@@ -12,19 +12,21 @@ interface Category {
   title: string
 }
 
-interface Post {
-  id: string
-  title: string
-  slug: string
-  heroImage?: {
-    url: string
-  }
-  meta?: {
-    description?: string
-  }
-  publishedAt: string
-  categories?: Category[]
-  populatedAuthors?: Author[]
+interface Post
+{
+    id: string
+    title: string
+    slug: string
+    heroImage?: {
+        url: string
+        alt: string
+    }
+    meta?: {
+        description?: string
+    }
+    publishedAt: string
+    categories?: Category[]
+    populatedAuthors?: Author[]
 }
 
 interface PostsResponse {
@@ -43,7 +45,11 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+    
+
+    useEffect(() =>
+    {
+
     const fetchPosts = async () => {
       try {
         setLoading(true)
@@ -113,7 +119,7 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
   if (loading) {
     return (
       <div className="w-full h-64 flex items-center justify-center">
-        <p className="text-lg">Loading posts...</p>
+            <p className="text-lg text-blue-500 dark:text-grey-200">Loading posts...</p>
       </div>
     )
   }
@@ -133,43 +139,42 @@ const PostsGrid: React.FC<PostsGridProps> = ({ categorySlug }) => {
       </div>
     )
   }
-
+    
   return (
     <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       {posts.map((post) => (
         <article key={post.id} className="flex flex-col items-start justify-between">
-          <div className="relative w-full">
-            <img
-              alt={post.title}
-              src={post.heroImage?.url 
-                ? `${process.env.NEXT_PUBLIC_CMS_URL}${post.heroImage.url}`
-                : '/placeholder-image.jpg'}
-              className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-            />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+              <div className="relative w-full">
+
+                  <img
+                      alt={post.heroImage?.alt || post.title}
+                      src={`https://qsg-news.vercel.app${post.heroImage?.url}`}
+                      className="aspect-[16/9] w-full rounded-2xl text-blue-500 dark:text-grey-200 bg-grey-200 dark:bg-dark-300 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                  />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-grey-200/10 dark:ring-dark-100/50" />
           </div>
           <div className="max-w-xl">
             <div className="mt-8 flex items-center gap-x-4 text-xs">
-              <time dateTime={post.publishedAt} className="text-gray-500">
+              <time dateTime={post.publishedAt} className="text-blue-400 dark:text-grey-200">
                 {new Date(post.publishedAt).toLocaleDateString()}
               </time>
               {post.categories?.map((category) => (
                 <span
                   key={category.id}
-                  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                      className="relative z-10 rounded-full  px-3 py-1.5 font-medium text-blue-400 dark:text-grey-200"
                 >
                   {category.title}
                 </span>
               ))}
             </div>
             <div className="group relative">
-              <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-gray-600">
+              <h3 className="mt-3 text-lg font-semibold text-blue-300 group-hover:text-gray-600">
                 <a href={`/posts/${post.slug}`} className="hover:underline">
                   <span className="absolute inset-0" />
                   {post.title}
                 </a>
               </h3>
-              <p className="mt-5 line-clamp-3 text-sm text-gray-600">
+              <p className="mt-5 line-clamp-3 text-sm text-blue-500 dark:text-grey-200">
                 {post.meta?.description}
               </p>
             </div>
