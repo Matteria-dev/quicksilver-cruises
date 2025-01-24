@@ -29,35 +29,34 @@ interface Post
 async function getPost(slug: string): Promise<Post | null>
 {
     try {
-        const params = new URLSearchParams({
-            depth: '2',
-            where: JSON.stringify({
+        const requestUrl = `https://qsg-news.vercel.app/api/posts?depth=2&where=${encodeURIComponent(
+            JSON.stringify({
                 and: [
                     { slug: { equals: slug } },
                     { _status: { equals: 'published' } }
                 ]
             })
-        }).toString()
+        )}`
 
-        const response = await fetch(
-            `https://qsg-news.vercel.app/api/posts?${params}`,
-            {
-                cache: 'no-store',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
+        const response = await fetch(requestUrl, {
+            next: { revalidate: 60 },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             }
-        )
+        })
 
         if (!response.ok) {
             throw new Error(`Failed to fetch post: ${response.statusText}`)
         }
 
         const data = await response.json()
-        return data.docs?.[0] || null
+
+        // Get post with exact slug match
+        const matchingPost = data.docs?.find((p: Post) => p.slug === slug)
+
+        return matchingPost || null
     } catch (error) {
-        console.error('Error fetching post:', error)
         return null
     }
 }
