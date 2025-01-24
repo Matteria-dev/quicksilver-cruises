@@ -1,42 +1,38 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 
-interface Category
-{
-    id: string
-    title: string
-    slug: string
+interface Category {
+  id: string
+  title: string
+  slug: string
 }
 
-interface Post
-{
-    id: string
-    title: string
-    slug: string
-    heroImage?: {
-        url: string
-        alt: string
-    }
-    meta?: {
-        description?: string
-    }
-    publishedAt: string
-    categories?: Category[]
+interface Post {
+  id: string
+  title: string
+  slug: string
+  heroImage?: {
+    url: string
+    alt: string
+  }
+  meta?: {
+    description?: string
+  }
+  publishedAt: string
+  categories?: Category[]
 }
 
-interface PostsResponse
-{
-    docs: Post[]
-    totalDocs: number
-    totalPages: number
-    page: number
+interface PostsResponse {
+  docs: Post[]
+  totalDocs: number
+  totalPages: number
+  page: number
 }
 
-const PostsGrid: React.FC = () =>
-{
-    const [posts, setPosts] = useState<Post[]>([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
+const PostsGrid: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
     useEffect(() =>
     {

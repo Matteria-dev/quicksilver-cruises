@@ -1,36 +1,6 @@
 {
   "version": 3,
   "middleware": {},
-  "functions": {
-    "/api/posts/[slug]/route": {
-      "files": [
-        "server/server-reference-manifest.js",
-        "server/app/api/posts/[slug]/route_client-reference-manifest.js",
-        "server/middleware-build-manifest.js",
-        "server/middleware-react-loadable-manifest.js",
-        "server/next-font-manifest.js",
-        "server/interception-route-rewrite-manifest.js",
-        "server/edge-runtime-webpack.js",
-        "server/app/api/posts/[slug]/route.js"
-      ],
-      "name": "app/api/posts/[slug]/route",
-      "page": "/api/posts/[slug]/route",
-      "matchers": [
-        {
-          "regexp": "^/api/posts/(?<slug>[^/]+?)$",
-          "originalSource": "/api/posts/[slug]"
-        }
-      ],
-      "wasm": [],
-      "assets": [],
-      "env": {
-        "__NEXT_BUILD_ID": "OKDHM5PyrR8B_1ie3LF6f",
-        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "gq3lkmQsdQPP8R9TNReNLErcpqdW2HleGUlTDNnm3UU=",
-        "__NEXT_PREVIEW_MODE_ID": "968728f8993fe910ca958f03877a20e9",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0af1ce264cdcaf23604760eb6949a5ab20b2b2a4acbf7008cc201dc6901d4df6",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "f5b0cb6c88a2cf9d2232cc92c60e16f12bb36096f2190ceed502d48cdf6391b9"
-      }
-    }
-  },
+  "functions": {},
   "sortedMiddleware": []
 }

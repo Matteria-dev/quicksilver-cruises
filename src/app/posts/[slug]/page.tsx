@@ -1,11 +1,13 @@
 import { notFound } from 'next/navigation'
+import { RichText } from '@/components/rich-text'
+import { Container } from '@/components/container'
 
 interface Post
 {
     id: string
     title: string
     slug: string
-    content: any // Update this type based on your content structure
+    content: any
     heroImage?: {
         url: string
         alt: string
@@ -28,16 +30,24 @@ async function getPost(slug: string): Promise<Post | null>
 {
     try {
         const params = new URLSearchParams({
-            depth: '1',
+            depth: '2',
             where: JSON.stringify({
-                slug: { equals: slug },
-                _status: { equals: 'published' }
+                and: [
+                    { slug: { equals: slug } },
+                    { _status: { equals: 'published' } }
+                ]
             })
-        })
+        }).toString()
 
         const response = await fetch(
             `https://qsg-news.vercel.app/api/posts?${params}`,
-            { next: { revalidate: 10 } }
+            {
+                cache: 'no-store',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
         )
 
         if (!response.ok) {
@@ -53,7 +63,7 @@ async function getPost(slug: string): Promise<Post | null>
 }
 
 export default async function PostPage({
-    params
+    params,
 }: {
     params: Promise<{ slug: string }>
 })
@@ -66,59 +76,61 @@ export default async function PostPage({
     }
 
     return (
-        <article className="max-w-4xl mx-auto px-4 py-12">
-            {/* Hero Image */}
-            {post.heroImage?.url && (
-                <div className="relative w-full">
-
-                    <img
-                        alt={post.heroImage?.alt || post.title}
-                        src={`https://qsg-news.vercel.app${post.heroImage?.url}`}
-                        className="aspect-[16/9] w-full rounded-2xl text-blue-500 dark:text-grey-200 bg-grey-200 dark:bg-dark-300 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                    />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-grey-200/10 dark:ring-dark-100/50" />
-                </div>
-            )}
-
-            {/* Header */}
-            <header className="mb-8 mt-8">
-                <h1 className="text-4xl font-bold mb-4 text-blue-300 dark:text-blue-200">{post.title}</h1>
-
-                <div className="flex items-center gap-4 text-sm text-blue-400 dark:text-grey-200">
-                    <time dateTime={post.publishedAt}>
-                        {new Date(post.publishedAt).toLocaleDateString()}
-                    </time>
-
-                    {post.categories?.map((category) => (
-                        <span
-                            key={category.id}
-                            className="rounded-full bg-gray-100 px-3 py-1"
-                        >
-                            {category.title}
-                        </span>
-                    ))}
-                </div>
-
-                {post.populatedAuthors?.[0] && (
-                    <div className="flex items-center gap-3 mt-4">
-                        <img
-                            src="/placeholder-avatar.jpg"
-                            alt={post.populatedAuthors[0].name}
-                            className="w-10 h-10 rounded-full"
-                        />
-                        <div>
-                            <p className="font-medium">{post.populatedAuthors[0].name}</p>
-                            <p className="text-sm text-gray-600">Author</p>
+        <article>
+            <div className="relative">
+                <Container className="relative">
+                    {post.heroImage?.url && (
+                        <div className="inset-0 h-[calc(30vh-5rem)] md:h-[calc(50vh-5rem)] lg:h-[calc(75vh-5rem)] w-full lg:w-[calc(100%-2rem)] max-w-[1920px] mx-auto overflow-hidden">
+                            <img
+                                alt={post.heroImage.alt || post.title}
+                                src={`https://qsg-news.vercel.app${post.heroImage.url}`}
+                                className="absolute inset-0 h-[calc(30vh-5rem)] md:h-[calc(50vh-5rem)] lg:h-[calc(75vh-5rem)] w-[calc(100%-1rem)] lg:w-[calc(100%-1rem)] ml-2 mt-3 overflow-hidden rounded-2xl md:rounded-2xl lg:rounded-3xl object-cover ring-1 ring-inset ring-grey-100 dark:ring-dark-400"
+                            />
+                            <div className="hidden md:block absolute bottom-2 left-7 max-w-xl lg:max-w-2xl rounded-2xl bg-grey-200/70 dark:bg-dark-400/70 p-8 backdrop-blur-md">
+                                <div className="flex items-center gap-4 text-sm text-blue-400 dark:text-blue-100">
+                                    <time dateTime={post.publishedAt}>
+                                        {new Date(post.publishedAt).toLocaleDateString()}
+                                    </time>
+                                    {post.categories?.map((category) => (
+                                        <span key={category.id} className="font-mono uppercase">
+                                            {category.title}
+                                        </span>
+                                    ))}
+                                </div>
+                                <h1 className="mt-4 text-3xl lg:text-4xl font-medium tracking-tight text-blue-300 dark:text-blue-200">
+                                    {post.title}
+                                </h1>
+                            </div>
                         </div>
-                    </div>
-                )}
-            </header>
+                    )}
 
-            {/* Content */}
-            <div className="prose prose-lg max-w-none">
-                {/* You'll need to implement a proper rich text renderer here */}
-                {post.content}
+                    <div className="md:hidden mt-6 px-4">
+                        <div className="flex items-center gap-4 text-sm text-blue-400 dark:text-blue-100">
+                            <time dateTime={post.publishedAt}>
+                                {new Date(post.publishedAt).toLocaleDateString()}
+                            </time>
+                            {post.categories?.map((category) => (
+                                <span key={category.id} className="font-mono uppercase">
+                                    {category.title}
+                                </span>
+                            ))}
+                        </div>
+                        <h1 className="mt-4 text-3xl font-medium tracking-tight text-blue-300 dark:text-blue-200">
+                            {post.title}
+                        </h1>
+                    </div>
+                </Container>
             </div>
+
+            <Container>
+                <div className="max-w-4xl mx-auto px-4 py-12">
+                    <div className="prose prose-lg max-w-none">
+                        <RichText content={post.content} />
+                    </div>
+                </div>
+            </Container>
         </article>
     )
 }
+
+export const dynamic = 'force-dynamic'

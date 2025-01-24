@@ -1,4 +1,3 @@
-// src/components/Hero.tsx
 import { Container } from './container'
 import Navbar from './navbar'
 import Image from 'next/image'
