@@ -29,6 +29,7 @@ interface PostsResponse {
   page: number
 }
 
+
 const PostsGrid: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
@@ -36,50 +37,42 @@ const PostsGrid: React.FC = () => {
 
     useEffect(() =>
     {
-        const fetchPosts = async () =>
-        {
-            try {
-                setLoading(true)
-                setError(null)
-
-                const whereQuery = {
-                    _status: { equals: 'published' },
-                    categories: {
-                        exists: true,
-                        not: { equals: null },
-                        elemMatch: {
-                            or: [
-                                { slug: { equals: 'quicksilver-cruises' } },
-                                { slug: { equals: 'quicksilver-group' } }
-                            ]
-                        }
-                    }
+        const fetchPosts = async () => {
+    try {
+        setLoading(true)
+        const whereQuery = {
+            _status: { equals: 'published' },
+            categories: {
+                exists: true,
+                elemMatch: {
+                    slug: { in: ['quicksilver-cruises', 'quicksilver-group'] }
                 }
-
-                const params = new URLSearchParams({
-                    depth: '1',
-                    limit: '12',
-                    where: JSON.stringify(whereQuery)
-                })
-
-                const response = await fetch(`/api/posts?${params.toString()}`)
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch posts')
-                }
-
-                const data: PostsResponse = await response.json()
-                const filteredPosts = data.docs.filter(post =>
-                    post.categories?.some(cat => cat.slug === 'quicksilver-cruises')
-                )
-                setPosts(filteredPosts)
-            } catch (err) {
-                console.error('Error:', err)
-                setError(err instanceof Error ? err.message : 'An error occurred')
-            } finally {
-                setLoading(false)
             }
         }
+        const params = new URLSearchParams({
+            depth: '1',
+            limit: '12',
+            where: JSON.stringify(whereQuery)
+        })
+        const response = await fetch(`/api/posts?${params.toString()}`)
+        if (!response.ok) throw new Error('Failed to fetch posts')
+        const data: PostsResponse = await response.json()
+        const filteredPosts = data.docs
+            .filter((post: Post) =>
+                post.categories?.some((cat: Category) =>
+                    ['quicksilver-cruises', 'quicksilver-group'].includes(cat.slug)
+                )
+            )
+            .sort((a: Post, b: Post) =>
+                new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+            )
+        setPosts(filteredPosts)
+    } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+        setLoading(false)
+    }
+}
 
         fetchPosts()
     }, [])
