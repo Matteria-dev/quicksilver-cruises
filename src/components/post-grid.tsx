@@ -48,7 +48,10 @@ const PostsGrid: React.FC = () => {
                         exists: true,
                         not: { equals: null },
                         elemMatch: {
-                            slug: { equals: 'quicksilver-cruises' }
+                            or: [
+                                { slug: { equals: 'quicksilver-cruises' } },
+                                { slug: { equals: 'quicksilver-group' } }
+                            ]
                         }
                     }
                 }
