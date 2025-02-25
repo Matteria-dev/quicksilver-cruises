@@ -46,7 +46,7 @@ function Gallery({ images }: { images: TextWithGalleryProps['images'] }) {
   return (
     <div className="relative h-full w-full">
       {/* Main Image */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
+      <div className="relative aspect-3/4 w-full overflow-hidden rounded-2xl">
         <Image
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}

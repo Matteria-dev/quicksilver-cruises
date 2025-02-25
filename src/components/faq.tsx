@@ -91,9 +91,9 @@ export function TabbedFAQ() {
               className={({ selected }) =>
                 clsx(
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-hidden focus:ring-2',
                   selected
-                    ? 'bg-white text-blue-400 shadow'
+                    ? 'bg-white text-blue-400 shadow-sm'
                     : 'hover:bg-white/[0.12] text-blue-500 hover:text-blue-400',
                 )
               }
@@ -108,7 +108,7 @@ export function TabbedFAQ() {
               key={category.id}
               className={clsx(
                 'bg-white rounded-xl p-3',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-hidden focus:ring-2',
               )}
             >
               <div className="space-y-2">
@@ -118,7 +118,7 @@ export function TabbedFAQ() {
                     <Disclosure key={itemId} as="div">
                       {({ open }) => (
                         <div className="rounded-lg border border-grey-200">
-                          <Disclosure.Button className="bg-white text-grey-900 hover:bg-grey-50 flex w-full justify-between rounded-lg px-4 py-4 text-left text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+                          <Disclosure.Button className="bg-white text-grey-900 hover:bg-grey-50 flex w-full justify-between rounded-lg px-4 py-4 text-left text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
                             <span className="text-base">{faq.question}</span>
                             <ChevronDownIcon
                               className={clsx(

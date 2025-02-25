@@ -57,7 +57,7 @@ function Key({
       className={clsx(
         className,
         'flex flex-col items-center justify-center gap-0.5 px-1 py-px',
-        'rounded bg-white bg-gradient-to-t from-black/[3%] shadow-[0_1px_rgb(0_0_0_/_0.05)] ring-1 ring-black/10',
+        'rounded-sm bg-white bg-linear-to-t from-black/[3%] shadow-[0_1px_rgb(0_0_0_/_0.05)] ring-1 ring-black/10',
         '[:where(&_svg)]:h-3.5 [:where(&_svg)]:fill-gray-600',
       )}
     >
@@ -70,7 +70,7 @@ function KeyGroup(props: { children: React.ReactNode }) {
   return (
     <div
       {...props}
-      className="grid gap-px rounded bg-black/10 ring-1 ring-black/10 [&>*]:ring-0"
+      className="grid gap-px rounded-sm bg-black/10 ring-1 ring-black/10 *:ring-0"
     />
   )
 }

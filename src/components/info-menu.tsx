@@ -83,7 +83,7 @@ export function InfoMenu({ activeSection, className }: SideMenuProps) {
             <h2 className="text-center text-xl font-bold text-blue-500 dark:text-blue-200">
               Information
             </h2>
-            <div className="mt-1 h-1 w-full rounded-full bg-gradient-to-r from-blue-300 to-teal-300" />
+            <div className="mt-1 h-1 w-full rounded-full bg-linear-to-r from-blue-300 to-teal-300" />
           </div>
 
           <nav className="space-y-1">
@@ -97,7 +97,7 @@ export function InfoMenu({ activeSection, className }: SideMenuProps) {
                   href={link.href}
                   className={`group relative flex items-center rounded-lg p-2 transition-all duration-200 ${
                     isActive
-                      ? 'from-blue-50 to-teal-50 bg-gradient-to-r text-blue-500'
+                      ? 'from-blue-50 to-teal-50 bg-linear-to-r text-blue-500'
                       : 'text-blue-500 dark:text-blue-300 dark:text-grey-200'
                   }`}
                   onMouseEnter={() => setHoveredLink(link.href)}
@@ -105,7 +105,7 @@ export function InfoMenu({ activeSection, className }: SideMenuProps) {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span className="mr-2 flex-grow truncate text-sm font-medium">
+                  <span className="mr-2 grow truncate text-sm font-medium">
                     {link.title}
                   </span>
                   <ChevronRight
@@ -118,7 +118,7 @@ export function InfoMenu({ activeSection, className }: SideMenuProps) {
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute left-0 top-0 h-full w-0.5 rounded-r bg-gradient-to-b from-blue-400 to-teal-400"
+                      className="absolute left-0 top-0 h-full w-0.5 rounded-r bg-linear-to-b from-blue-400 to-teal-400"
                       initial={false}
                       transition={{
                         type: 'spring',
@@ -133,11 +133,11 @@ export function InfoMenu({ activeSection, className }: SideMenuProps) {
           </nav>
         </div>
 
-        <div className="from-blue-50 to-teal-50 mt-2 bg-gradient-to-br p-3">
+        <div className="from-blue-50 to-teal-50 mt-2 bg-linear-to-br p-3">
                   <p className="text-blue-500 dark:text-grey-200 text-xs">
             Need help choosing an activity?
           </p>
-          <button className="mt-2 w-full rounded-lg bg-gradient-to-r from-blue-100 from-blue-300 to-blue-200 px-3 py-1.5 text-xs font-medium text-grey-200 transition-colors hover:bg-gradient-to-r">
+          <button className="mt-2 w-full rounded-lg bg-linear-to-r from-blue-100 from-blue-300 to-blue-200 px-3 py-1.5 text-xs font-medium text-grey-200 transition-colors hover:bg-linear-to-r">
             Contact Us
           </button>
         </div>

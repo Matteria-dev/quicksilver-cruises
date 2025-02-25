@@ -21,7 +21,7 @@ function SafetyInfoBox() {
     ];
   
     return (
-      <div className="mt-8 rounded-2xl overflow-hidden shadow-sm bg-blue-100/20 dark:bg-blue-200">
+      <div className="mt-8 rounded-2xl overflow-hidden shadow-xs bg-blue-100/20 dark:bg-blue-200">
         <div className="p-8">
           <div className="flex items-center gap-3 mb-6">
             <AlertCircle className="h-6 w-6 text-blue-300 dark:text-blue-400" />
@@ -62,7 +62,7 @@ function SafetyInfoBox() {
     return (
       <div className={clsx(
         'relative rounded-2xl overflow-hidden flex flex-col',
-        'ring-1 ring-grey-200/5 dark:ring-grey-500/5 shadow-sm',
+        'ring-1 ring-grey-200/5 dark:ring-grey-500/5 shadow-xs',
         variant === 'highlighted' ? 'bg-blue-300/20 dark:bg-blue-500' : 'bg-grey-200 dark:bg-dark-300',
       )}>
         {image && (
@@ -74,7 +74,7 @@ function SafetyInfoBox() {
                         width={800}
                         height={800}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/0" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-black/0" />
           </div>
         )}
         <div className="p-8 flex flex-col flex-1">
@@ -160,7 +160,7 @@ export function SnorkelTours() {
     <section>
       <Container className='px-0 lg:px-0'>
           <div className="flex items-center gap-3 mb-4">
-            <Button variant="secondary" className="bg-teal-100 data-[hover]:bg-teal-100 data-[hover]:text-blue-500 text-teal-700 border-teal-200">
+            <Button variant="secondary" className="bg-teal-100 data-hover:bg-teal-100 data-hover:text-blue-500 text-teal-700 border-teal-200">
               Optional Activity
             </Button>
           </div>

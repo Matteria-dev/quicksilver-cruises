@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 function StatCard({ number, label }: { number: number; label: string }) {
   return (
-    <div className="flex flex-col items-center rounded-xl bg-grey-200 dark:bg-dark-300 p-6 shadow-sm">
+    <div className="flex flex-col items-center rounded-xl bg-grey-200 dark:bg-dark-300 p-6 shadow-xs">
       <div className="mb-2 text-3xl font-bold text-blue-300 dark:text-blue-200">
         {number.toLocaleString()}
       </div>
@@ -169,10 +169,10 @@ export default function AgincourtReef() {
                       Learn More
                     </button>
                   </div>
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-teal-300 opacity-20" />
+                  <div className="absolute inset-0 rounded-xl bg-linear-to-r from-blue-400 to-teal-300 opacity-20" />
                 </div>
 
-                <div className="rounded-xl bg-grey-200 dark:bg-dark-300 p-6 shadow-sm">
+                <div className="rounded-xl bg-grey-200 dark:bg-dark-300 p-6 shadow-xs">
                   <div className="relative rounded-xl p-6">
                                           <h4 className="mb-4 text-xl font-bold text-blue-300 dark:text-blue-200">
                       Biodiversity Highlights

@@ -59,8 +59,8 @@ const timeline = [
       <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center">
         {/* Timeline line and dot */}
         <div className="absolute left-0 lg:left-1/2 h-[calc(200%-30rem)] w-0.5 hidden lg:block">
-          <div className="absolute h-full w-0.5 bg-gradient-to-b from-blue-200 to-teal-200" />
-          <div className="absolute mt-5 -left-2 w-5 h-5 rounded-full bg-gradient-to-r from-blue-200 to-teal-200" /> {/* Adjusted position */}
+          <div className="absolute h-full w-0.5 bg-linear-to-b from-blue-200 to-teal-200" />
+          <div className="absolute mt-5 -left-2 w-5 h-5 rounded-full bg-linear-to-r from-blue-200 to-teal-200" /> {/* Adjusted position */}
         </div>
   
         {/* Content container with alternating layout */}
@@ -69,7 +69,7 @@ const timeline = [
             {/* Text Container - aligned consistently */}
             <div className={`mb-4 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
               <div className={`inline-flex items-center gap-4 ${index % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
-                <div className="bg-gradient-to-r from-blue-100 to-teal-100 text-blue-500 px-3 py-1 rounded-full text-sm font-medium">
+                <div className="bg-linear-to-r from-blue-100 to-teal-100 text-blue-500 px-3 py-1 rounded-full text-sm font-medium">
                   {item.time}
                 </div>
                 <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-200">{item.title}</h3>
@@ -86,7 +86,7 @@ const timeline = [
                             width={500}
                             height={500}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </div>

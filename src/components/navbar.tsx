@@ -33,6 +33,7 @@ import { useEffect, useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
 import clsx from 'clsx'
 import Image from 'next/image'
+import Link from "next/link";
 
 const experiences = [
     {
@@ -221,7 +222,7 @@ export default function Navbar()
                     <header
                         className={clsx(
                             isScrolled
-                                ? 'w-full max-w-[120rem] bg-gradient-to-r from-blue-200/75 to-teal-200/75 backdrop-blur-md lg:ml-2 lg:mr-2 lg:mt-2  lg:rounded-2xl'
+                                ? 'w-full max-w-[120rem] bg-linear-to-r from-blue-200/75 to-teal-200/75 backdrop-blur-md lg:ml-2 lg:mr-2 lg:mt-2  lg:rounded-2xl'
                                 : 'w-full bg-grey-100 dark:bg-dark-400 lg:rounded-2xl',
                             'duration-300 ease-in-out'
                         )}
@@ -230,7 +231,7 @@ export default function Navbar()
 
 
                             <div className="flex lg:flex-1">
-                                <a href="/#" className="-m-1.5 p-1.5">
+                                <Link href="/#" className="-m-1.5 p-1.5">
                                     <span className="sr-only">Quicksilver Cruises</span>
                                     <div className="relative h-10 w-40">
                                         <Image
@@ -252,7 +253,7 @@ export default function Navbar()
                                             height={40}
                                         />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
 
                             {/* Mobile menu button */}
@@ -288,7 +289,7 @@ export default function Navbar()
 
                                         <PopoverPanel
                                             transition
-                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-dark-400 dark:ring-dark-200"
+                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
                                         >
                                             {' '}
                                             <div className="grid grid-cols-2 gap-0">
@@ -304,13 +305,13 @@ export default function Navbar()
                                                             />
                                                         </div>
                                                         <div className="flex-auto">
-                                                            <a
+                                                            <Link
                                                                 href={item.href}
                                                                 className="block font-semibold text-blue-500 dark:text-blue-200"
                                                             >
                                                                 {item.name}
                                                                 <span className="absolute inset-0" />
-                                                            </a>
+                                                            </Link>
                                                             <p className="mt-1 text-blue-500 dark:text-grey-300">
                                                                 {item.description}
                                                             </p>
@@ -338,7 +339,7 @@ export default function Navbar()
 
                                         <PopoverPanel
                                             transition
-                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-dark-400 dark:ring-dark-200"
+                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
                                         >
                                             {' '}
                                             <div className="grid grid-cols-2 gap-0">
@@ -354,13 +355,13 @@ export default function Navbar()
                                                             />
                                                         </div>
                                                         <div className="flex-auto">
-                                                            <a
+                                                            <Link
                                                                 href={item.href}
                                                                 className="block font-semibold text-blue-500 dark:text-blue-200"
                                                             >
                                                                 {item.name}
                                                                 <span className="absolute inset-0" />
-                                                            </a>
+                                                            </Link>
                                                             <p className="mt-1 text-blue-500 dark:text-grey-300">
                                                                 {item.description}
                                                             </p>
@@ -388,21 +389,21 @@ export default function Navbar()
 
                                         <PopoverPanel
                                             transition
-                                            className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-grey-200 p-2 shadow-lg ring-1 ring-grey-100 backdrop-blur-lg transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in dark:bg-dark-400 dark:ring-dark-200"
+                                            className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-grey-200 p-2 shadow-lg ring-1 ring-grey-100 backdrop-blur-lg transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
                                         >
                                             {company.map((item) => (
-                                                <a
+                                                <Link
                                                     key={item.name}
                                                     href={item.href}
                                                     className="block rounded-lg px-3 py-2 text-sm/6 font-semibold text-blue-500 hover:bg-blue-400 dark:text-blue-200"
                                                 >
                                                     {item.name}
-                                                </a>
+                                                </Link>
                                             ))}
                                         </PopoverPanel>
                                     </Popover>
 
-                                    <a
+                                    <Link
                                         className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
                                                 ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
                                                 : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
@@ -410,8 +411,8 @@ export default function Navbar()
                                         href='/pricing'
                                     >
                                         Pricing
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
                                                 ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
                                                 : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
@@ -419,7 +420,7 @@ export default function Navbar()
                                         href='/contact'
                                     >
                                         Contact
-                                    </a>
+                                    </Link>
                                 </PopoverGroup>
 
                                 <div className="flex items-center gap-4">
@@ -428,7 +429,7 @@ export default function Navbar()
                                     </Button>
                                     <ThemeToggle />
 
-                                    <a
+                                    <Link
                                         href="https://facebook.com"
                                         className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
                                             ? 'text-blue-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
@@ -437,8 +438,8 @@ export default function Navbar()
                                         title="Visit our Facebook page"
                                     >
                                         <FacebookIcon className="size-5" />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="https://instagram.com"
                                         className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
                                             ? 'text-blue-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
@@ -447,7 +448,7 @@ export default function Navbar()
                                         title="Visit our Instagram page"
                                     >
                                         <InstagramIcon className="size-5" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </nav>
@@ -462,7 +463,7 @@ export default function Navbar()
                             <div className="fixed inset-0 z-50" />
                             <DialogPanel
                                 className={`fixed inset-y-0 right-0 z-50 w-full overflow-y-auto ${isScrolled
-                                        ? 'bg-gradient-to-r from-blue-200/75 to-teal-200/75 backdrop-blur-md'
+                                        ? 'bg-linear-to-r from-blue-200/75 to-teal-200/75 backdrop-blur-md'
                                         : 'bg-grey-100 dark:bg-dark-400'
                                     } sm:ring-gray-900/10 px-6 py-6 sm:max-w-sm sm:ring-0`}
                                 style={{
@@ -471,7 +472,7 @@ export default function Navbar()
                                 }}
                             >
                                 <div className="flex items-center justify-between">
-                                    <a href="#" className="-m-1.5 p-1.5 sm:hidden">
+                                    <Link href="#" className="-m-1.5 p-1.5 sm:hidden">
                                         <span className="sr-only">Quicksilver Cruises</span>
                                         <div className="relative h-8 w-auto">
                                             <Image
@@ -489,7 +490,7 @@ export default function Navbar()
                                                 height={40}
                                             />
                                         </div>
-                                    </a>
+                                    </Link>
                                     <button
                                         type="button"
                                         className="text-blue-500 dark:text-grey-200 -m-2.5 ml-auto rounded-md p-2.5"
@@ -582,18 +583,18 @@ export default function Navbar()
                                                     </>
                                                 )}
                                             </Disclosure>
-                                            <a
+                                            <Link
                                                 href="/pricing"
                                                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-500 dark:text-grey-200 hover:bg-blue-200/50"
                                             >
                                                 Pricing
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 href="/contact"
                                                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-500 dark:text-grey-200 hover:bg-blue-200/50"
                                             >
                                                 Contact
-                                            </a>
+                                            </Link>
 
                                         </div>
                                         <div className="flex flex-col gap-4 py-6">
@@ -601,20 +602,20 @@ export default function Navbar()
                                                 Book Now
                                             </Button>
                                             <div className="flex justify-center gap-4">
-                                                <a
+                                                <Link
                                                     href="https://facebook.com"
                                                     className="text-blue-500 hover:text-blue-400 dark:text-grey-300 dark:hover:text-blue-100"
                                                     title="Visit our Facebook page"
                                                 >
                                                     <FacebookIcon className="size-5" />
-                                                </a>
-                                                <a
+                                                </Link>
+                                                <Link
                                                     href="https://instagram.com"
                                                     className="text-blue-500 hover:text-blue-400 dark:text-grey-300 dark:hover:text-blue-100"
                                                     title="Visit our Instagram page"
                                                 >
                                                     <InstagramIcon className="size-5" />
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

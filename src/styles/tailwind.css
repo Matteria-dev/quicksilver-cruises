@@ -1,6 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-*: initial;
+  --color-transparent-100: #00000000;
+  --color-transparent-200: #f9f9f975;
+  --color-transparent-300: #6fdaf880;
+  --color-transparent-400: #00a6a980;
+  --color-transparent-500: #241e2175;
+
+  --color-blue-100: #6fdaf8;
+  --color-blue-200: #1cb7ea;
+  --color-blue-300: #0c86cb;
+  --color-blue-400: #0065b7;
+  --color-blue-500: #00385b;
+
+  --color-teal-100: #00cad6;
+  --color-teal-200: #1ec2d2;
+  --color-teal-300: #00a6a9;
+  --color-teal-400: #28b0a9;
+  --color-teal-500: #008b93;
+
+  --color-grey-100: #f9f9f9;
+  --color-grey-200: #f2f2f2;
+  --color-grey-300: #d3d3d9;
+  --color-grey-400: #848484;
+  --color-grey-500: #241e21;
+
+  --color-dark-100: #18181b;
+  --color-dark-200: #2d2d2d;
+  --color-dark-300: #121212;
+  --color-dark-400: #1e293b;
+
+  --animate-scroll: scroll var(--duration, 40s) linear infinite;
+
+  --font-sans: Switzer, system-ui, sans-serif;
+  --font-gotham-book: Gotham Book, sans-serif;
+  --font-gotham-black: Gotham Black, sans-serif;
+  --font-gotham-medium: Gotham Medium, sans-serif;
+
+  --radius-4xl: 2rem;
+
+  --background-image-fade: linear-gradient(to top, grey-200, transparent);
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 1rem));
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @keyframes move-x {
   0% {

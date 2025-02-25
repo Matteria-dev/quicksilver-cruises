@@ -41,7 +41,7 @@ function Gallery() {
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Main showcase image */}
             <div className="lg:w-2/3">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-grey-100 dark:bg-dark-200 shadow-lg">
+              <div className="relative aspect-4/3 overflow-hidden rounded-2xl bg-grey-100 dark:bg-dark-200 shadow-lg">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeIndex}
@@ -54,7 +54,7 @@ function Gallery() {
                     transition={{ duration: 0.5 }}
                   />
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/0 to-blue-500/20" />
+                <div className="absolute inset-0 bg-linear-to-b from-blue-500/0 via-blue-500/0 to-blue-500/20" />
               </div>
             </div>
 
@@ -65,7 +65,7 @@ function Gallery() {
                   <button
                     key={index}
                     onClick={() => handleThumbnailClick(index)}
-                    className={`relative overflow-hidden rounded-lg transition-all duration-200 aspect-[4/3] lg:aspect-auto ${
+                    className={`relative overflow-hidden rounded-lg transition-all duration-200 aspect-4/3 lg:aspect-auto ${
                       activeIndex === index
                         ? 'ring-2 ring-blue-300 ring-offset-2'
                         : 'hover:ring-2 hover:ring-blue-500/50 hover:ring-offset-2'

@@ -109,7 +109,7 @@ const PostsGrid: React.FC = () => {
                         <img
                             alt={post.heroImage?.alt || post.title}
                             src={`https://qsg-news.vercel.app${post.heroImage?.url}`}
-                            className="aspect-[16/9] w-full rounded-2xl text-blue-500 dark:text-grey-200 bg-grey-200 dark:bg-dark-300 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                            className="aspect-16/9 w-full rounded-2xl text-blue-500 dark:text-grey-200 bg-grey-200 dark:bg-dark-300 object-cover sm:aspect-2/1 lg:aspect-3/2"
                         />
                         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-grey-200/10 dark:ring-dark-100/50" />
                     </div>

@@ -182,7 +182,7 @@ export function TermsAccordion() {
                 key={tab.name}
                 className={({ selected }) =>
                   clsx(
-                    'px-6 py-4 text-sm font-medium focus:outline-none',
+                    'px-6 py-4 text-sm font-medium focus:outline-hidden',
                     selected
                       ? 'text-blue-400 border-b-2 border-blue-400 -mb-px dark:text-blue-200'
                       : 'text-blue-500 hover:text-blue-400 dark:text-grey-200'
@@ -197,7 +197,7 @@ export function TermsAccordion() {
             {tabs.map((tab) => (
               <Tab.Panel
                 key={tab.name}
-                className="p-6 focus:outline-none text-xs dark:text-grey-200"
+                className="p-6 focus:outline-hidden text-xs dark:text-grey-200"
               >
                 {tab.content}
               </Tab.Panel>
@@ -239,12 +239,12 @@ export default function Pricing() {
             </div>
 
             {/* Pricing Cards */}
-            <div className="mt-2 p-0 lg:mt-0 lg:w-full lg:max-w-xl lg:flex-shrink-0">
+            <div className="mt-2 p-0 lg:mt-0 lg:w-full lg:max-w-xl lg:shrink-0">
              
                 <div>
                   <div className="grid grid-cols-3 gap-4 px-4">
                     {tiers.map((tier) => (
-                      <Card className='bg-grey-200 p-0 shadow-sm  dark:bg-dark-200'>
+                      <Card className='bg-grey-200 p-0 shadow-xs  dark:bg-dark-200'>
                       <div
                         key={tier.name}
                         className={clsx(
@@ -275,7 +275,7 @@ export default function Pricing() {
                     ))}
                   </div>
 
-                  <button className="text-grey-200 mt-6 w-full rounded-lg bg-blue-400 px-3 py-2 text-sm font-semibold hover:bg-blue-300 shadow-sm">
+                  <button className="text-grey-200 mt-6 w-full rounded-lg bg-blue-400 px-3 py-2 text-sm font-semibold hover:bg-blue-300 shadow-xs">
                     Book Now
                   </button>
                 </div>
