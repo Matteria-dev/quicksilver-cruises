@@ -190,6 +190,9 @@ export default function Navbar()
 {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const [experiencesHover, setExperiencesHover] = useState(false)
+    const [informationHover, setInformationHover] = useState(false)
+    const [companyHover, setCompanyHover] = useState(false)
 
     useEffect(() =>
     {
@@ -273,134 +276,171 @@ export default function Navbar()
                             <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end">
                                 <PopoverGroup className="mr-8 flex gap-x-8">
                                     <Popover className="relative">
-                                        <PopoverButton
-                                            className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
-                                                    ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
-                                                    : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
-                                                }`}
-                                        >
-                                            Experiences
-                                            <ChevronDownIcon
-                                                className={`size-5 flex-none ${isScrolled ? 'text-grey-500' : 'text-grey-400'
+                                        {({ open }) => (
+                                            <div
+                                                onMouseEnter={() => setExperiencesHover(true)}
+                                                onMouseLeave={() => setExperiencesHover(false)}
+                                            >
+                                                <PopoverButton
+                                                    className={`flex items-center gap-x-1 text-sm/6 font-semibold outline-none ${
+                                                        isScrolled
+                                                            ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
+                                                            : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
                                                     }`}
-                                                aria-hidden="true"
-                                            />
-                                        </PopoverButton>
-
-                                        <PopoverPanel
-                                            transition
-                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
-                                        >
-                                            {' '}
-                                            <div className="grid grid-cols-2 gap-0">
-                                                {experiences.map((item) => (
-                                                    <div
-                                                        key={item.name}
-                                                        className="hover:bg-gray-50 group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
-                                                    >
-                                                        <div className="bg-gray-50 group-hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg">
-                                                            <item.icon
-                                                                className="size-6 text-grey-500 group-hover:text-blue-300 dark:text-grey-300"
-                                                                aria-hidden="true"
-                                                            />
-                                                        </div>
-                                                        <div className="flex-auto">
-                                                            <Link
-                                                                href={item.href}
-                                                                className="block font-semibold text-blue-500 dark:text-blue-200"
-                                                            >
-                                                                {item.name}
-                                                                <span className="absolute inset-0" />
-                                                            </Link>
-                                                            <p className="mt-1 text-blue-500 dark:text-grey-300">
-                                                                {item.description}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </PopoverPanel>
-                                    </Popover>
-
-                                    <Popover className="relative">
-                                        <PopoverButton
-                                            className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
-                                                    ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
-                                                    : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
-                                                }`}
-                                        >
-                                            Information
-                                            <ChevronDownIcon
-                                                className={`size-5 flex-none ${isScrolled ? 'text-grey-500' : 'text-grey-400'
-                                                    }`}
-                                                aria-hidden="true"
-                                            />
-                                        </PopoverButton>
-
-                                        <PopoverPanel
-                                            transition
-                                            className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
-                                        >
-                                            {' '}
-                                            <div className="grid grid-cols-2 gap-0">
-                                                {information.map((item) => (
-                                                    <div
-                                                        key={item.name}
-                                                        className="hover:bg-gray-50 group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
-                                                    >
-                                                        <div className="bg-gray-50 group-hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg">
-                                                            <item.icon
-                                                                className="size-6 text-grey-500 group-hover:text-blue-300 dark:text-grey-300"
-                                                                aria-hidden="true"
-                                                            />
-                                                        </div>
-                                                        <div className="flex-auto">
-                                                            <Link
-                                                                href={item.href}
-                                                                className="block font-semibold text-blue-500 dark:text-blue-200"
-                                                            >
-                                                                {item.name}
-                                                                <span className="absolute inset-0" />
-                                                            </Link>
-                                                            <p className="mt-1 text-blue-500 dark:text-grey-300">
-                                                                {item.description}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </PopoverPanel>
-                                    </Popover>
-
-                                    <Popover className="relative">
-                                        <PopoverButton
-                                            className={`flex items-center gap-x-1 text-sm/6 font-semibold ${isScrolled
-                                                    ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
-                                                    : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
-                                                }`}
-                                        >
-                                            Company
-                                            <ChevronDownIcon
-                                                className={`size-5 flex-none ${isScrolled ? 'text-grey-500' : 'text-grey-400'
-                                                    }`}
-                                                aria-hidden="true"
-                                            />
-                                        </PopoverButton>
-
-                                        <PopoverPanel
-                                            transition
-                                            className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-grey-200 p-2 shadow-lg ring-1 ring-grey-100 backdrop-blur-lg transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in dark:bg-dark-400 dark:ring-dark-200"
-                                        >
-                                            {company.map((item) => (
-                                                <Link
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    className="block rounded-lg px-3 py-2 text-sm/6 font-semibold text-blue-500 hover:bg-blue-400 dark:text-blue-200"
                                                 >
-                                                    {item.name}
-                                                </Link>
-                                            ))}
-                                        </PopoverPanel>
+                                                    Experiences
+                                                    <ChevronDownIcon
+                                                        className={`size-5 flex-none ${
+                                                            isScrolled ? 'text-grey-500' : 'text-grey-400'
+                                                        }`}
+                                                        aria-hidden="true"
+                                                    />
+                                                </PopoverButton>
+
+                                                {experiencesHover && (
+                                                    <>
+                                                        <div className="absolute -bottom-3 left-0 right-0 h-3" />
+                                                        <PopoverPanel static
+                                                                      className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 dark:bg-dark-400 dark:ring-dark-200"
+                                                        >
+                                                            <div className="grid grid-cols-2 gap-0">
+                                                                {experiences.map((item) => (
+                                                                    <div
+                                                                        key={item.name}
+                                                                        className="hover:bg-gray-50 group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
+                                                                    >
+                                                                        <div className="bg-gray-50 group-hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg">
+                                                                            <item.icon
+                                                                                className="size-6 text-grey-500 group-hover:text-blue-300 dark:text-grey-300"
+                                                                                aria-hidden="true"
+                                                                            />
+                                                                        </div>
+                                                                        <div className="flex-auto">
+                                                                            <Link
+                                                                                href={item.href}
+                                                                                className="block font-semibold text-blue-500 dark:text-blue-200"
+                                                                            >
+                                                                                {item.name}
+                                                                                <span className="absolute inset-0" />
+                                                                            </Link>
+                                                                            <p className="mt-1 text-blue-500 dark:text-grey-300">
+                                                                                {item.description}
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </PopoverPanel>
+                                                    </>
+                                                )}
+                                            </div>
+                                        )}
+                                    </Popover>
+
+                                    <Popover className="relative">
+                                        {({ open }) => (
+                                            <div
+                                                onMouseEnter={() => setInformationHover(true)}
+                                                onMouseLeave={() => setInformationHover(false)}
+                                            >
+                                                <PopoverButton
+                                                    className={`flex items-center gap-x-1 text-sm/6 font-semibold outline-none ${
+                                                        isScrolled
+                                                            ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
+                                                            : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
+                                                    }`}
+                                                >
+                                                    Information
+                                                    <ChevronDownIcon
+                                                        className={`size-5 flex-none ${
+                                                            isScrolled ? 'text-grey-500' : 'text-grey-400'
+                                                        }`}
+                                                        aria-hidden="true"
+                                                    />
+                                                </PopoverButton>
+
+                                                {informationHover && (
+                                                    <>
+                                                        <div className="absolute -bottom-3 left-0 right-0 h-3" />
+                                                        <PopoverPanel static
+                                                                      className="absolute left-1/2 top-full z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-3xl bg-grey-200 shadow-lg ring-1 ring-grey-100 dark:bg-dark-400 dark:ring-dark-200"
+                                                        >
+                                                            <div className="grid grid-cols-2 gap-0">
+                                                                {information.map((item) => (
+                                                                    <div
+                                                                        key={item.name}
+                                                                        className="hover:bg-gray-50 group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
+                                                                    >
+                                                                        <div className="bg-gray-50 group-hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg">
+                                                                            <item.icon
+                                                                                className="size-6 text-grey-500 group-hover:text-blue-300 dark:text-grey-300"
+                                                                                aria-hidden="true"
+                                                                            />
+                                                                        </div>
+                                                                        <div className="flex-auto">
+                                                                            <Link
+                                                                                href={item.href}
+                                                                                className="block font-semibold text-blue-500 dark:text-blue-200"
+                                                                            >
+                                                                                {item.name}
+                                                                                <span className="absolute inset-0" />
+                                                                            </Link>
+                                                                            <p className="mt-1 text-blue-500 dark:text-grey-300">
+                                                                                {item.description}
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </PopoverPanel>
+                                                    </>
+                                                )}
+                                            </div>
+                                        )}
+                                    </Popover>
+
+                                    <Popover className="relative">
+                                        {({ open }) => (
+                                            <div
+                                                onMouseEnter={() => setCompanyHover(true)}
+                                                onMouseLeave={() => setCompanyHover(false)}
+                                            >
+                                                <PopoverButton
+                                                    className={`flex items-center gap-x-1 text-sm/6 font-semibold outline-none ${
+                                                        isScrolled
+                                                            ? 'text-grey-500 hover:text-blue-400 dark:text-blue-500 dark:hover:text-blue-400'
+                                                            : 'text-blue-500 hover:text-blue-200 dark:text-grey-300 dark:hover:text-blue-100'
+                                                    }`}
+                                                >
+                                                    Company
+                                                    <ChevronDownIcon
+                                                        className={`size-5 flex-none ${
+                                                            isScrolled ? 'text-grey-500' : 'text-grey-400'
+                                                        }`}
+                                                        aria-hidden="true"
+                                                    />
+                                                </PopoverButton>
+
+                                                {companyHover && (
+                                                    <>
+                                                        <div className="absolute -bottom-3 left-0 right-0 h-3" />
+                                                        <PopoverPanel static
+                                                                      className="absolute left-1/2 top-full z-10 mt-3 w-56 -translate-x-1/2 overflow-hidden rounded-xl bg-grey-200 p-2 shadow-lg ring-1 ring-grey-100 dark:bg-dark-400 dark:ring-dark-200"
+                                                        >
+                                                            {company.map((item) => (
+                                                                <Link
+                                                                    key={item.name}
+                                                                    href={item.href}
+                                                                    className="block rounded-lg px-3 py-2 text-sm/6 font-semibold text-blue-500 hover:bg-blue-400 dark:text-blue-200"
+                                                                >
+                                                                    {item.name}
+                                                                </Link>
+                                                            ))}
+                                                        </PopoverPanel>
+                                                    </>
+                                                )}
+                                            </div>
+                                        )}
                                     </Popover>
 
                                     <Link
