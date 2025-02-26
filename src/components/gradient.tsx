@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import React from "react";
 
 export function Gradient({
   className,
@@ -9,22 +10,8 @@ export function Gradient({
       {...props}
       className={clsx(
         className,
-        'bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#1bb7ea] from-28%  to-[#2ab0a9] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]',
+        'bg-linear-115 from-[#1bb7ea] from-28% to-[#2ab0a9] sm:bg-linear-145',
       )}
     />
-  )
-}
-
-export function GradientBackground() {
-  return (
-    <div className="relative mx-auto max-w-7xl">
-      <div
-        className={clsx(
-          'absolute -right-60 -top-44 h-60 w-[36rem] transform-gpu md:right-0',
-          'bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#1bb7ea] from-28%  to-[#2ab0a9]',
-          'rotate-[-10deg] rounded-full blur-3xl',
-        )}
-      />
-    </div>
   )
 }

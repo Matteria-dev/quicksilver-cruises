@@ -21,7 +21,7 @@ const navigation = {
     { name: 'FAQ', href: '#' },
   ],
   company: [
-    { name: 'Quickilver group News', href: '#' },
+    { name: 'Quicksilver group News', href: '#' },
     { name: 'Reef Biosearch', href: '#' },
     { name: 'Awards', href: '#' },
     { name: 'Ecotourism', href: '#' },
@@ -39,17 +39,17 @@ const navigation = {
 
 export default function Footer() {
   return (
-<footer className="ml-2 mb-2 w-[calc(100%-1rem)] inset-2 rounded-3xl ring-1 ring-inset ring-grey-100 dark:ring-transparent-100 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#1bb7ea] from-28% to-[#2ab0a9] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]">
-  <div className="mx-auto px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-24">
-    <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-      <div className="flex flex-col">
-        <Image
-          alt="Quicksilver Cruises"
-          src="/logo/quicksilver-cruises.webp"
-                          className="h-16 w-auto object-contain object-left"
-                          width={160}
-                          height={40}
-        />
+      <footer className="ml-2 mb-2 w-[calc(100%-1rem)] inset-2 rounded-3xl ring-1 ring-inset ring-grey-100 dark:ring-transparent-100 bg-linear-115 from-[#1bb7ea] from-28% to-[#2ab0a9] sm:bg-linear-145">
+        <div className="mx-auto px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-24">
+          <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div className="flex flex-col">
+              <Image
+                  alt="Quicksilver Cruises"
+                  src="/logo/quicksilver-cruises.webp"
+                  className="h-16 w-auto object-contain object-left"
+                  width={160}
+                  height={40}
+              />
         
         <div className="mt-8 flex flex-col space-y-6">
           <h3 className="text-sm/6 font-semibold text-grey-500">Part of the Quicksilver Group</h3>

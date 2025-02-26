@@ -2,6 +2,7 @@ import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/navbar'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import React from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -22,12 +23,7 @@ export default function RootLayout({
             rel="stylesheet"
             href="https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&amp;display=swap"
         />
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="The Quicksilver Blog"
-            href="/blog/feed.xml"
-        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -41,7 +37,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <SpeedInsights />
+        <SpeedInsights /><title></title>
       </head>
       <body className="flex min-h-screen flex-col text-gray-950 antialiased bg-grey-100 dark:bg-dark-400">
       <Navbar />

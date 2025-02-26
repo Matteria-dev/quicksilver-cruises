@@ -12,7 +12,6 @@ import { homeContent } from '@/content/home'
 export const metadata: Metadata = {
     description: homeContent.metadata.description,
 }
-
 function Hero() {
     const { title, description, images, video } = homeContent.hero;
 
